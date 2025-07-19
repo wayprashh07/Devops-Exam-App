@@ -1,52 +1,45 @@
-```markdown
 # 📘 DevOps Exam App – Dockerized Full Stack Project
 
-A fully Dockerized Full Stack Application designed to simulate a DevOps exam environment.
+A Dockerized Full Stack DevOps Exam App built using:
+
+- 🐍 **Flask (Backend)**
+- 🖥 **HTML + JavaScript (Frontend)**
+- 🐬 **MySQL 5.7 (Database)**
+- 🐳 **Docker + Docker Compose**
 
 ---
 
-## 🔧 Tech Stack
-
-| Layer     | Technology              |
-|-----------|--------------------------|
-| Backend   | 🐍 Flask (Python)        |
-| Frontend  | 🖥 HTML, CSS, JS         |
-| Database  | 🐬 MySQL 5.7             |
-| DevOps    | 🐳 Docker, Docker Compose |
-| OS        | 🐧 Ubuntu 20.04+         |
-
----
-
-## 📁 Project Structure
-
-```
+# 📂 Folder Structure
 
 Devops-Exam-App/
-├── backend/              # Flask App
-│   ├── app.py
-│   ├── questions.py
-│   ├── templates/
-│   ├── static/
-│   ├── requirements.txt
-│   └── dockerfile
-├── frontend/             # HTML + Optional NGINX
-│   ├── index.html
-│   ├── exam.html
-│   ├── result.html
-│   └── nginx.conf
+├── backend/ # Flask app
+│ ├── app.py
+│ ├── questions.py
+│ ├── templates/
+│ ├── static/
+│ ├── requirements.txt
+│ └── Dockerfile
+├── frontend/ # HTML Pages
+│ ├── index.html
+│ ├── exam.html
+│ ├── result.html
+│ └── nginx.conf (optional)
 ├── db/
-│   └── init.sql          # MySQL DB + Table + User Setup
-├── .env                  # Environment Variables
-├── docker-compose.yml    # Compose Configuration
-└── README.md             # You're reading this 😎
+│ └── init.sql # MySQL DB Setup Script
+├── .env # Environment Variables
+├── docker-compose.yml # Docker Compose Config
+└── README.md
 
-````
+yaml
+Copy
+Edit
+
 
 ---
 
-## 🚀 Setup Instructions
+# 🚀 Setup Instructions
 
-### ✅ 1. Install Docker and Docker Compose
+# ✅ 1. Install Docker and Docker Compose
 
 ```bash
 sudo apt update
@@ -69,7 +62,7 @@ docker-compose --version
 
 ---
 
-### 📥 2. Clone the Repository
+# 📥 2. Clone the Repository
 
 ```bash
 git clone https://github.com/your-username/Devops-Exam-App.git
@@ -78,7 +71,7 @@ cd Devops-Exam-App
 
 ---
 
-### 🔐 3. Create `.env` File
+# 🔐 3. Create `.env` File
 
 Create a file named `.env` at the root of the project and add:
 
@@ -92,7 +85,7 @@ DB_NAME=devops_exam
 
 ---
 
-### 🐬 4. MySQL Auto Setup
+# 🐬 4. MySQL Auto Setup
 
 The file `db/init.sql` will:
 
@@ -105,7 +98,7 @@ The file `db/init.sql` will:
 
 ---
 
-### 🐳 5. Build & Run the App
+# 🐳 5. Build & Run the App
 
 ```bash
 docker-compose up --build
@@ -119,7 +112,7 @@ This will:
 
 ---
 
-### 🌐 6. Access the Application
+# 🌐 6. Access the Application
 
 Open browser and visit:
 
@@ -129,7 +122,7 @@ http://<your-ec2-public-ip>:5000/
 
 ---
 
-### 🧪 7. Optional: Access MySQL
+# 🧪 7. Optional: Access MySQL
 
 ```bash
 docker exec -it mysql_db /bin/bash
@@ -147,7 +140,7 @@ SELECT * FROM results;
 
 ---
 
-### ⛔ 8. Stop the Application
+# ⛔ 8. Stop the Application
 
 ```bash
 docker-compose down
@@ -155,7 +148,7 @@ docker-compose down
 
 ---
 
-## 💡 Tips
+# 💡 Tips
 
 If you update the `init.sql`, run:
 
@@ -166,7 +159,7 @@ docker-compose up --build
 
 ---
 
-## 🙌 Author
+### 🙌 Author
 
 Built with ❤️ by **Vedant Tambe**
 
