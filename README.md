@@ -1,67 +1,66 @@
 📘 DevOps Exam App – Dockerized Full Stack Project
-This is a Dockerized Full Stack DevOps Exam App built using:
+A fully Dockerized Full Stack Application designed to simulate a DevOps exam environment.
+🔧 Tech Stack
+Layer	Technology
+Backend	🐍 Flask (Python)
+Frontend	🖥 HTML, CSS, JS
+Database	🐬 MySQL 5.7
+DevOps	🐳 Docker, Docker Compose
+OS	🐧 Ubuntu 20.04+
 
-🐍 Flask (Backend)
-
-🖥 HTML + JS (Frontend)
-
-🐬 MySQL 5.7 (Database)
-
-🐳 Docker + Docker Compose
-
-📦 Folder Structure
+📁 Project Structure
 bash
 Copy
 Edit
 Devops-Exam-App/
-├── backend/               # Flask app
+├── backend/              # Flask App
 │   ├── app.py
 │   ├── questions.py
 │   ├── templates/
 │   ├── static/
 │   ├── requirements.txt
 │   └── dockerfile
-├── frontend/              # HTML Files + NGINX Config (optional)
+├── frontend/             # HTML + Optional NGINX
 │   ├── index.html
 │   ├── exam.html
 │   ├── result.html
 │   └── nginx.conf
 ├── db/
-│   └── init.sql           # MySQL database + table + user setup
-├── .env                   # Environment Variables
-├── docker-compose.yml     # Compose file
-└── README.md              # You're reading this 😎
-🚀 Step-by-Step Setup
+│   └── init.sql          # MySQL DB + Table + User Setup
+├── .env                  # Environment Variables
+├── docker-compose.yml    # Compose Configuration
+└── README.md             # You're reading this 😎
+🚀 Setup Instructions
 ✅ 1. Prerequisites
-Make sure you have the following installed on your Ubuntu machine:
+Install Docker and Docker Compose:
 
 bash
 Copy
 Edit
 sudo apt update
 sudo apt install -y docker.io docker-compose
-Enable and start Docker:
+Start and enable Docker:
 
 bash
 Copy
 Edit
 sudo systemctl enable docker
 sudo systemctl start docker
-Verify:
+Check installation:
 
 bash
 Copy
 Edit
 docker --version
 docker-compose --version
-📁 2. Clone the Repository
+📂 2. Clone the Repository
 bash
 Copy
 Edit
-git clone https://github.com/yourusername/Devops-Exam-App.git
+git clone https://github.com/<your-username>/Devops-Exam-App.git
 cd Devops-Exam-App
-🔐 3. Configure .env
-Create a .env file at the root:
+🔐 3. Create .env File
+At the project root, create a .env file:
 
 env
 Copy
@@ -71,48 +70,44 @@ DB_HOST=exam-mysql
 DB_USER=exam_user
 DB_PASSWORD=exam_pass
 DB_NAME=devops_exam
-🐬 4. Setup MySQL Database
-The SQL file db/init.sql will:
+🐬 4. MySQL Auto-Setup
+The file db/init.sql will:
 
-Create a database devops_exam
+Create devops_exam database
 
-Create a table results
+Create results table
 
 Create user exam_user with password exam_pass
 
-Grant privileges
+Grant necessary privileges
 
-You don't need to do this manually — it auto-runs via Docker Compose.
+ℹ️ No manual DB setup needed — handled by Docker Compose
 
-🐳 5. Build & Run the App using Docker Compose
+🐳 5. Build & Run the App
 bash
 Copy
 Edit
 docker-compose up --build
 This will:
 
-Spin up mysql_db container (port 3306)
+Start MySQL (mysql_db) on port 3306
 
-Spin up flask_app container (port 5000)
+Start Flask (flask_app) on port 5000
 
-Flask will connect to MySQL using values from .env
+🌐 6. Access the Application
+Open your browser and go to:
 
-🔍 6. Access the App
-Open in browser:
-
-bash
+cpp
 Copy
 Edit
 http://<your-ec2-public-ip>:5000/
-🧪 7. Verify MySQL Setup (Optional)
-To access MySQL inside container:
-
+🔍 7. (Optional) Verify MySQL Setup
 bash
 Copy
 Edit
 docker exec -it mysql_db /bin/bash
 mysql -u root -p
-Then:
+Then run:
 
 sql
 Copy
@@ -121,32 +116,24 @@ SHOW DATABASES;
 USE devops_exam;
 SHOW TABLES;
 SELECT * FROM results;
-✅ 8. Stopping the Containers
+⛔ 8. Stop the App
 bash
 Copy
 Edit
 docker-compose down
-💡 Tips
-To rebuild containers from scratch:
+💡 Tips & Tricks
+To rebuild containers cleanly:
 
 bash
 Copy
 Edit
 docker-compose down -v
 docker-compose up --build
-If you modify init.sql, make sure to remove volumes:
+If init.sql is modified, remove the existing volume:
 
 bash
 Copy
 Edit
 docker volume rm devops-exam-app_db_data
-🛠 Tech Stack
-Layer	Tech
-Backend	Flask
-Frontend	HTML/CSS/JS
-Database	MySQL 5.7
-DevOps	Docker, Compose
-OS	Ubuntu 20.04+
-
-🙌 Credits
-Developed by Vedant Tambe 🚀
+🙌 Author
+Built with ❤️ by Vedant Tambe
