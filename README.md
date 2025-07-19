@@ -1,17 +1,26 @@
-📘 DevOps Exam App – Dockerized Full Stack Project
-A fully Dockerized Full Stack Application designed to simulate a DevOps exam environment.
-🔧 Tech Stack
-Layer	Technology
-Backend	🐍 Flask (Python)
-Frontend	🖥 HTML, CSS, JS
-Database	🐬 MySQL 5.7
-DevOps	🐳 Docker, Docker Compose
-OS	🐧 Ubuntu 20.04+
+```markdown
+# 📘 DevOps Exam App – Dockerized Full Stack Project
 
-📁 Project Structure
-bash
-Copy
-Edit
+A fully Dockerized Full Stack Application designed to simulate a DevOps exam environment.
+
+---
+
+## 🔧 Tech Stack
+
+| Layer     | Technology              |
+|-----------|--------------------------|
+| Backend   | 🐍 Flask (Python)        |
+| Frontend  | 🖥 HTML, CSS, JS         |
+| Database  | 🐬 MySQL 5.7             |
+| DevOps    | 🐳 Docker, Docker Compose |
+| OS        | 🐧 Ubuntu 20.04+         |
+
+---
+
+## 📁 Project Structure
+
+```
+
 Devops-Exam-App/
 ├── backend/              # Flask App
 │   ├── app.py
@@ -30,110 +39,135 @@ Devops-Exam-App/
 ├── .env                  # Environment Variables
 ├── docker-compose.yml    # Compose Configuration
 └── README.md             # You're reading this 😎
-🚀 Setup Instructions
-✅ 1. Prerequisites
-Install Docker and Docker Compose:
 
-bash
-Copy
-Edit
+````
+
+---
+
+## 🚀 Setup Instructions
+
+### ✅ 1. Install Docker and Docker Compose
+
+```bash
 sudo apt update
 sudo apt install -y docker.io docker-compose
-Start and enable Docker:
+````
 
-bash
-Copy
-Edit
+Enable and start Docker:
+
+```bash
 sudo systemctl enable docker
 sudo systemctl start docker
-Check installation:
+```
 
-bash
-Copy
-Edit
+Verify installation:
+
+```bash
 docker --version
 docker-compose --version
-📂 2. Clone the Repository
-bash
-Copy
-Edit
-git clone https://github.com/<your-username>/Devops-Exam-App.git
-cd Devops-Exam-App
-🔐 3. Create .env File
-At the project root, create a .env file:
+```
 
-env
-Copy
-Edit
+---
+
+### 📥 2. Clone the Repository
+
+```bash
+git clone https://github.com/your-username/Devops-Exam-App.git
+cd Devops-Exam-App
+```
+
+---
+
+### 🔐 3. Create `.env` File
+
+Create a file named `.env` at the root of the project and add:
+
+```env
 PORT=5000
 DB_HOST=exam-mysql
 DB_USER=exam_user
 DB_PASSWORD=exam_pass
 DB_NAME=devops_exam
-🐬 4. MySQL Auto-Setup
-The file db/init.sql will:
+```
 
-Create devops_exam database
+---
 
-Create results table
+### 🐬 4. MySQL Auto Setup
 
-Create user exam_user with password exam_pass
+The file `db/init.sql` will:
 
-Grant necessary privileges
+* Create a database `devops_exam`
+* Create a table `results`
+* Create user `exam_user` with password `exam_pass`
+* Grant all privileges
 
-ℹ️ No manual DB setup needed — handled by Docker Compose
+⚠️ No need to do this manually — handled by Docker Compose.
 
-🐳 5. Build & Run the App
-bash
-Copy
-Edit
+---
+
+### 🐳 5. Build & Run the App
+
+```bash
 docker-compose up --build
+```
+
 This will:
 
-Start MySQL (mysql_db) on port 3306
+* Start MySQL container on port 3306
+* Start Flask app on port 5000
+* Load environment variables from `.env`
 
-Start Flask (flask_app) on port 5000
+---
 
-🌐 6. Access the Application
-Open your browser and go to:
+### 🌐 6. Access the Application
 
-cpp
-Copy
-Edit
+Open browser and visit:
+
+```
 http://<your-ec2-public-ip>:5000/
-🔍 7. (Optional) Verify MySQL Setup
-bash
-Copy
-Edit
+```
+
+---
+
+### 🧪 7. Optional: Access MySQL
+
+```bash
 docker exec -it mysql_db /bin/bash
 mysql -u root -p
+```
+
 Then run:
 
-sql
-Copy
-Edit
+```sql
 SHOW DATABASES;
 USE devops_exam;
 SHOW TABLES;
 SELECT * FROM results;
-⛔ 8. Stop the App
-bash
-Copy
-Edit
+```
+
+---
+
+### ⛔ 8. Stop the Application
+
+```bash
 docker-compose down
-💡 Tips & Tricks
-To rebuild containers cleanly:
+```
 
-bash
-Copy
-Edit
-docker-compose down -v
-docker-compose up --build
-If init.sql is modified, remove the existing volume:
+---
 
-bash
-Copy
-Edit
+## 💡 Tips
+
+If you update the `init.sql`, run:
+
+```bash
 docker volume rm devops-exam-app_db_data
-🙌 Author
-Built with ❤️ by Vedant Tambe
+docker-compose up --build
+```
+
+---
+
+## 🙌 Author
+
+Built with ❤️ by **Vedant Tambe**
+
+
