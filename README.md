@@ -11,28 +11,31 @@ A Dockerized Full Stack DevOps Exam App built using:
 
 # 📂 Folder Structure
 
-Devops-Exam-App/
-├── backend/ # Flask app
-│ ├── app.py
-│ ├── questions.py
-│ ├── templates/
-│ ├── static/
-│ ├── requirements.txt
-│ └── Dockerfile
-├── frontend/ # HTML Pages
-│ ├── index.html
-│ ├── exam.html
-│ ├── result.html
-│ └── nginx.conf (optional)
-├── db/
-│ └── init.sql # MySQL DB Setup Script
-├── .env # Environment Variables
-├── docker-compose.yml # Docker Compose Config
-└── README.md
+## Devops-Exam-App/
 
-yaml
-Copy
-Edit
+├── backend/ # Flask backend
+│ ├── app.py # Main Flask app
+│ ├── questions.py # Logic for exam questions
+│
+├── frontend/ # Frontend HTML templates
+│ ├── templates/
+│ │ ├── index.html
+│ │ ├── exam.html
+│ │ └── result.html
+│ └── static/ # Static files (CSS, JS, images)
+│
+├── db/
+│ └── init.sql # MySQL DB initialization script
+│
+├── .env # Environment variables
+├── Dockerfile # Backend Dockerfile
+├── docker-compose.yml # Docker Compose config
+├── nginx.conf (optional) # Optional: Nginx config file
+├── requirements.txt # Python dependencies
+└── README.md # You're here!
+
+
+
 
 
 ---
