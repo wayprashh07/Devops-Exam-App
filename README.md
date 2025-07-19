@@ -11,11 +11,10 @@ A Dockerized Full Stack DevOps Exam App built using:
 
 # 📂 Folder Structure
 
-## Devops-Exam-App/
-
+Devops-Exam-App/
 ├── backend/ # Flask backend
 │ ├── app.py # Main Flask app
-│ ├── questions.py # Logic for exam questions
+│ └── questions.py # Logic for exam questions
 │
 ├── frontend/ # Frontend HTML templates
 │ ├── templates/
@@ -33,10 +32,6 @@ A Dockerized Full Stack DevOps Exam App built using:
 ├── nginx.conf (optional) # Optional: Nginx config file
 ├── requirements.txt # Python dependencies
 └── README.md # You're here!
-
-
-
-
 
 ---
 
