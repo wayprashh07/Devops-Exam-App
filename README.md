@@ -6,7 +6,7 @@ A Dockerized Full Stack DevOps Exam App built using:
 - 🖥 **HTML + JavaScript (Frontend)**
 - 🐬 **MySQL 5.7 (Database)**
 - 🐳 **Docker + Docker Compose**
-- 
+  
 
 # 🚀 Setup Instructions
 
