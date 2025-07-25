@@ -1,0 +1,63 @@
+pipeline {
+    agent any
+
+    environment {
+        COMPOSE_PROJECT_NAME = "devops_exam_app"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                echo "Cloning GitHub repository..."
+                git branch: 'main', url: 'https://github.com/VedTambe/Devops-Exam-App.git'
+            }
+        }
+
+        stage('Build Docker Images') {
+            steps {
+                echo "Building Docker images..."
+                sh 'docker compose build'
+            }
+        }
+
+        stage('Trivy Security Scan') {
+            steps {
+                echo "Running Trivy scan on backend image..."
+                sh '''
+                    docker run --rm -v /var/run/docker.sock:/var/run/docker.sock \
+                    aquasec/trivy image devops-exam-app-flask || echo "Trivy scan completed with findings."
+                '''
+            }
+        }
+
+        stage('Start Application') {
+            steps {
+                echo "Starting the application using Docker Compose..."
+                sh 'docker compose up -d'
+            }
+        }
+
+        stage('Verify Containers') {
+            steps {
+                echo "Verifying running containers..."
+                sh 'docker ps'
+            }
+        }
+
+        stage('Test Flask Endpoint') {
+            steps {
+                echo "Testing if Flask app is reachable..."
+                sh 'curl -f http://localhost:5000 || exit 1'
+            }
+        }
+    }
+
+    post {
+        success {
+            echo "DevOps Exam App deployed successfully."
+        }
+        failure {
+            echo "Build or deployment failed."
+        }
+    }
+}
