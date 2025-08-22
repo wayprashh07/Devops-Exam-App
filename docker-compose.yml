@@ -3,9 +3,8 @@ version: '3.8'
 services:
   flask:
     build: ./backend
-    container_name: flask_app
     ports:
-      - "5000:5000"
+      - "5001:5000"
     environment:
       - FLASK_APP=app.py
       - FLASK_ENV=production
@@ -22,12 +21,11 @@ services:
 
   mysql:
     image: mysql:5.7
-    container_name: mysql_db
     environment:
       MYSQL_ROOT_PASSWORD: rootpass
       MYSQL_DATABASE: devops_exam
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql_data:/var/lib/mysql
       - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
